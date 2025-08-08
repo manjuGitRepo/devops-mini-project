@@ -1,14 +1,1 @@
-# Terraform
 .terraform/
-*.tfstate
-*.tfstate.backup
-
-# SSH keys
-*.pem
-
-# Ansible
-*.retry
-
-# General
-*.log
-.env
