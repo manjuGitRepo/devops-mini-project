@@ -7,6 +7,12 @@ resource "aws_key_pair" "project_key" {
   public_key = file("${path.module}/projectkeyPair.pub")
 }
 
+resource "aws_s3_bucket" "bucket" {
+  bucket = "my-test-bucket-123456"
+  region = "us-east-1"
+}
+
+
 resource "aws_security_group" "allow_http_ssh" {
   name        = "allow_http_ssh"
   description = "Allow HTTP and SSH"
@@ -47,3 +53,4 @@ resource "aws_instance" "web" {
     command = "echo ${self.public_ip} > ../instance_ip.txt"
   }
 }
+
