@@ -7,10 +7,7 @@ resource "aws_key_pair" "project_key" {
   public_key = file("${path.module}/projectkeyPair.pub")
 }
 
-resource "aws_s3_bucket" "bucket" {
-  bucket = "my-test-bucket-123456"
-  region = "us-east-1"
-}
+
 
 
 resource "aws_security_group" "allow_http_ssh" {
@@ -46,7 +43,7 @@ resource "aws_instance" "web" {
   vpc_security_group_ids = [aws_security_group.allow_http_ssh.id]
 
   tags = {
-    Name = "DevOpsMiniWeb"
+    Name = "DevOpsMiniWeb1"
   }
 
   provisioner "local-exec" {
